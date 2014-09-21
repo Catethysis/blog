@@ -12,7 +12,7 @@
 <script type="text/javascript"> VK.init({apiId: 4501632, onlyWidgets: true});</script>
 <script type="text/javascript">
 window.onload = function () {
-	var top = $('.post__head').offset().top - parseInt($('.post__head').css('marginTop')) - 30;
+	var top = $('.post__head').offset().top - parseInt($('.post__head').css('marginTop')) + 20;
 	var tops = [];
 	$('h2').each(function(i) {
 		tops.push({elem: $(this), top: $(this).offset().top - parseInt($(this).css('marginTop')) - 15});
@@ -128,7 +128,8 @@ body {
 	position: relative;
 	width: 100%;
 	background: #FFF;
-	height: 50px;
+	height: 30px;
+	margin-top: 50px;
 }
 
 .post__head.fixed {
@@ -137,6 +138,7 @@ body {
 	width: 800px; /* very dirty, % doesn't work */ 
 	background: #FFF;
 	height: 50px;
+	margin-top: 0px;
 }
 
 .post__head:after {
@@ -217,6 +219,7 @@ body {
 
 .post__body {
 	padding: 0 70px;
+	padding-top: 0px;
 	padding-bottom: 80px;
 }
 
@@ -237,9 +240,6 @@ body {
 }
 
 .meta__hold {
-}
-
-hr {
 	border-top: 1px dashed #555;
 }
 
@@ -272,18 +272,22 @@ aside {
 	height: 100%;
 }
 
+aside #twitter-widget-0 {
+	margin-top: -1px;
+}
+
 aside #vk_groups {
 	margin-left: 1px;
 }
 
 </style>
 <body>
-	<div class="center">
-		<header class="header">
-			<div class="header__name">Catethysis</div>
-			<div class="header__desc">Блог об электронике и STM32</div>
-		</header>
-		<section class="main">
+<div class="center">
+	<header class="header">
+		<div class="header__name">Catethysis</div>
+		<div class="header__desc">Блог об электронике и STM32</div>
+	</header>
+	<section class="main">
 		<article class="post">
 			<div class="post__head">
 				<div class="post__head-arrow"></div>
@@ -291,76 +295,75 @@ aside #vk_groups {
 				<span class = "header2"></span>
 			</div>
 			<section class="post__body">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			<h2>Датчик</h2>
-			<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<h2>Датчик</h2>
+				<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-			<h2>Сенсор</h2>
-			<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
+				<h2>Сенсор</h2>
+				<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
 
-			<pre class="post__code"><code class = "cs">uint16_t getCO2Level()
+				<pre class="post__code"><code class = "cs">uint16_t getCO2Level()
 {
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
 	return ADC_GetConversionValue(ADC1);
 }</code></pre>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			<img src = "http://placekitten.com/g/600/300"><br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<img src = "http://placekitten.com/g/600/300"><br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</section>
 			<section class = "meta__hold">
-				<hr>
 				<div class = "meta__body">
 					Дата, теги и прочая мета.
 				</div>
@@ -368,23 +371,23 @@ aside #vk_groups {
 		</article>
 
 		<aside>
-		<a class="twitter-timeline" href="https://twitter.com/Catethysis" data-widget-id="348534014291873792">Твиты пользователя @Catethysis</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<a class="twitter-timeline" href="https://twitter.com/Catethysis" data-widget-id="348534014291873792">Твиты пользователя @Catethysis</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-		<p>
-		<div id="vk_groups"></div>
-		<script type="text/javascript">
-		VK.Widgets.Group("vk_groups", {mode: 0, width: "198", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 68448377);
-		</script></p>
+			<p>
+			<div id="vk_groups"></div>
+			<script type="text/javascript">
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "198", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 68448377);
+			</script></p>
 		</aside>
 
-		</section>
-		<footer class="footer">
-			<span>
-				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br>
-				метрика<br>
-				всякие социальные кнопки
-			</span>
-		</footer>
-	</div>
+	</section>
+	<footer class="footer">
+		<span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br>
+			метрика<br>
+			всякие социальные кнопки
+		</span>
+	</footer>
+</div>
 </body>
