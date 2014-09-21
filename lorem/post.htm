@@ -3,10 +3,10 @@
 <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
 <script src="http://yastatic.net/jquery/2.1.1/jquery.min.js"></script>
 <script>
-hljs.configure({
-  tabReplace: '    '
-});
-hljs.initHighlightingOnLoad();
+	hljs.configure({
+		tabReplace: '    '
+	});
+	hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript">
 window.onload = function () {
@@ -89,13 +89,20 @@ body {
 	background: url(./roads.png) no-repeat 400px 0px;
 }
 
-.header span {
-	font-size: 40px;
+.header div {
 	color: transparent;
 	text-shadow: 0 0 0px #777;
 	position: relative;
 	top: 50px;
 	left: 50px;
+}
+
+.header__name {
+	font-size: 40px;
+}
+
+.header__desc {
+	font-size: 25px;
 }
 
 .main {
@@ -110,8 +117,8 @@ body {
 }
 
 .post {
-  	font-family: Arial;
-  	line-height: 23px;
+	font-family: Arial;
+	line-height: 23px;
 	font-size: 14px;
 }
 
@@ -170,55 +177,19 @@ body {
 }
 
 .post__head h1 {
-  padding: 0;
-  line-height: 40px;
-  margin: -25px 0 0 20px;
-  background: #fff;
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 10px;
-  font-weight: 100;
-  font-size: 28px;
-  color: #444;
-  position: relative;
-  
+	padding: 0;
+	line-height: 40px;
+	margin: -25px 0 0 20px;
+	background: #fff;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 10px;
+	font-weight: 100;
+	font-size: 28px;
+	color: #444;
+	position: relative;
 }
 
-.post__body {
-	padding: 0 70px;
-	padding-bottom: 80px;
-}
-
-.post__body.header_fixed {
-	padding-top: 80px;
-}
-
-.post__img {
-	display: block;
-}
-
-.post__code {
-	margin: 10px -70px;
-}
-
-.post__code .hljs {
-	padding: 30px 70px;
-}
-
-.footer {
-	position: fixed;
-	bottom: 0px;
-	height: 200px;
-	text-align: center;
-	width: 800px;
-	z-index: 1;
-	background: url(./roads.png) no-repeat 458px 0px;
-}
-
-.footer span {
-	position: absolute;
-	bottom: 50px;
-}
 
 .header2 {
 	display: none;
@@ -241,11 +212,61 @@ body {
 	margin-right: 13px;
 }
 
+
+.post__body {
+	padding: 0 70px;
+	padding-bottom: 80px;
+}
+
+.post__body.header_fixed {
+	padding-top: 80px;
+}
+
+.post__img {
+	display: block;
+}
+
+.post__code {
+	margin: 10px -70px;
+}
+
+.post__code .hljs {
+	padding: 30px 70px;
+}
+
+.meta__hold {
+}
+
+hr {
+	border-top: 1px dashed #555;
+}
+
+.meta__body {
+	padding: 0 70px;
+	padding-bottom: 10px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	height: 200px;
+	text-align: center;
+	width: 800px;
+	z-index: 1;
+	background: url(./roads.png) no-repeat 458px 0px;
+}
+
+.footer span {
+	position: absolute;
+	bottom: 50px;
+}
+
 </style>
 <body>
 	<div class="center">
 		<header class="header">
-			<span>Catethysis</span>
+			<div class="header__name">Catethysis</div>
+			<div class="header__desc">Блог об электронике и STM32</div>
 		</header>
 		<section class="main">
 		<article class="post">
@@ -323,13 +344,23 @@ body {
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</section>
+			<section class = "meta__hold">
+				<hr>
+				<div class = "meta__body">
+					Дата, теги и прочая мета.
+				</div>
+			</section>
 		</article>
 		</section>
 		<aside>
 
 		</aside>
 		<footer class="footer">
-			<span>Лицензия: свободная;<br> метрика; <br>всякие социальные кнопки.</span>
+			<span>
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br>
+				метрика<br>
+				всякие социальные кнопки
+			</span>
 		</footer>
 	</div>
 </body>
