@@ -1,14 +1,58 @@
 <meta charset="utf8">
-<link href="http://yastatic.net/highlightjs/8.2/styles/monokai.min.css" rel="stylesheet"></link>
+<link  href="http://yastatic.net/highlightjs/8.2/styles/monokai.min.css" rel="stylesheet"></link>
 <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+<script src="http://yastatic.net/jquery/2.1.1/jquery.min.js"></script>
 <script>
-hljs.configure({
-  tabReplace: '    ' // 4 spaces
-});
-hljs.initHighlightingOnLoad();
+	hljs.configure({
+		tabReplace: '    '
+	});
+	hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://vk.com/js/api/openapi.js?115"></script>
+<script type="text/javascript"> VK.init({apiId: 4501632, onlyWidgets: true});</script>
+<script type="text/javascript">
+window.onload = function () {
+	var top = $('.post__head').offset().top - parseInt($('.post__head').css('marginTop')) + 20;
+	var tops = [];
+	$('h2').each(function(i) {
+		tops.push({elem: $(this), top: $(this).offset().top - parseInt($(this).css('marginTop')) - 15});
+	});
+	tops.sort(function(a,b) {
+		if(a.top<b.top) return -1;
+		if(a.top>b.top) return +1;
+		else return 0;
+	});
+
+	var h1 = 0;
+	var old_h2 = -1, h2 = -1;
+	window.onscroll = function (event) {
+		// toggling H1 position
+		if((h1 == 0) && ($(this).scrollTop() >= top)) {
+			$('.post__head').addClass('fixed');
+			$('.post__body').addClass('header_fixed');
+			h1 = 1;
+		}
+		if((h1 == 1) && ($(this).scrollTop() <= top)) {
+			$('.post__head').removeClass('fixed');
+			$('.post__body').removeClass('header_fixed');
+			h1 = 0;
+		}
+
+		// adding H2 text to H1
+		old_h2 = h2;
+		h2 = -1;
+		for(i in tops)
+			if ($(this).scrollTop() >= tops[i].top)
+				h2 = i;
+		if(h2 != old_h2)
+		{
+			if(h2>-1)	$('.header2').addClass('display').text($(tops[h2].elem).text());
+			else		$('.header2').removeClass('display');
+		}
+	}
+}
 </script>
 <style>
-
 body {
 	background: #eee;
 	margin:0;
@@ -47,13 +91,20 @@ body {
 	background: url(./roads.png) no-repeat 400px 0px;
 }
 
-.header span {
-	font-size: 40px;
+.header div {
 	color: transparent;
 	text-shadow: 0 0 0px #777;
 	position: relative;
 	top: 50px;
 	left: 50px;
+}
+
+.header__name {
+	font-size: 40px;
+}
+
+.header__desc {
+	font-size: 25px;
 }
 
 .main {
@@ -68,8 +119,8 @@ body {
 }
 
 .post {
-  	font-family: Arial;
-  	line-height: 23px;
+	font-family: Arial;
+	line-height: 23px;
 	font-size: 14px;
 }
 
@@ -77,6 +128,17 @@ body {
 	position: relative;
 	width: 100%;
 	background: #FFF;
+	height: 30px;
+	margin-top: 50px;
+}
+
+.post__head.fixed {
+	position: fixed;
+	top: 0;
+	width: 800px; /* very dirty, % doesn't work */ 
+	background: #FFF;
+	height: 50px;
+	margin-top: 0px;
 }
 
 .post__head:after {
@@ -119,22 +181,50 @@ body {
 }
 
 .post__head h1 {
-  padding: 0;
-  line-height: 40px;
-  margin: -23px 0 0 20px;
-  background: #fff;
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 10px;
-  font-weight: 100;
-  font-size: 28px;
-  color: #444;
-  position: relative;
-
+	padding: 0;
+	line-height: 40px;
+	margin: -25px 0 0 20px;
+	background: #fff;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 10px;
+	font-weight: 100;
+	font-size: 28px;
+	color: #444;
+	position: relative;
 }
+
+
+.header2 {
+	display: none;
+	position: relative;
+	top: -16px;
+	left: -10px;
+	background: #fff;
+	padding: 0 10px;
+	font-family: Arial;
+	font-size: 21px;
+	font-weight: 100;
+}
+
+.header2.display {
+	display: inline-block;
+}
+
+.header2::before {
+	content: "→";
+	margin-right: 13px;
+}
+
 
 .post__body {
 	padding: 0 70px;
+	padding-top: 0px;
+	padding-bottom: 80px;
+}
+
+.post__body.header_fixed {
+	padding-top: 80px;
 }
 
 .post__img {
@@ -147,6 +237,15 @@ body {
 
 .post__code .hljs {
 	padding: 30px 70px;
+}
+
+.meta__hold {
+	border-top: 1px dashed #555;
+}
+
+.meta__body {
+	padding: 0 70px;
+	padding-bottom: 30px;
 }
 
 .footer {
@@ -164,65 +263,131 @@ body {
 	bottom: 50px;
 }
 
+aside {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	margin-left: 25px;
+	width: 200px;
+	height: 100%;
+}
+
+aside #twitter-widget-0 {
+	margin-top: -1px;
+}
+
+aside #vk_groups {
+	margin-left: 1px;
+}
+
 </style>
+<body>
 <div class="center">
-<header class="header">
-	<span>Catethysis</span>
-</header>
-<section class="main">
-    <article class="post">
-    	<div class="post__head">
-    		<div class="post__head-arrow"></div>
-    		<h1>Заголовок</h1>
-    	</div>
-    	<section class="post__body">
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	<header class="header">
+		<div class="header__name">Catethysis</div>
+		<div class="header__desc">Блог об электронике и STM32</div>
+	</header>
+	<section class="main">
+		<article class="post">
+			<div class="post__head">
+				<div class="post__head-arrow"></div>
+				<h1>Заголовок</h1>
+				<span class = "header2"></span>
+			</div>
+			<section class="post__body">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<h2>Датчик</h2>
+				<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-    	<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
+				<h2>Сенсор</h2>
+				<img class="post__img" src="http://catethysis.ru/wp-content/uploads/2014/09/mq135.png" />
 
-    	<pre class="post__code"><code class = "cs">uint16_t getCO2Level()
-    {
-    	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-    	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
-    	return ADC_GetConversionValue(ADC1);
-    }</code></pre>
-    	</section>
-    </article>
-</section>
-<aside>
+				<pre class="post__code"><code class = "cs">uint16_t getCO2Level()
+{
+	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
+	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
+	return ADC_GetConversionValue(ADC1);
+}</code></pre>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<img src = "http://placekitten.com/g/600/300"><br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</section>
+			<section class = "meta__hold">
+				<div class = "meta__body">
+					Дата, теги и прочая мета.
+				</div>
+			</section>
+		</article>
 
-</aside>
-<footer class="footer">
-	<span>Footer. Bye!</span>
-</footer>
+		<aside>
+			<a class="twitter-timeline" href="https://twitter.com/Catethysis" data-widget-id="348534014291873792">Твиты пользователя @Catethysis</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+			<p>
+			<div id="vk_groups"></div>
+			<script type="text/javascript">
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "198", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 68448377);
+			</script></p>
+		</aside>
+
+	</section>
+	<footer class="footer">
+		<span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br>
+			метрика<br>
+			всякие социальные кнопки
+		</span>
+	</footer>
 </div>
+</body>
