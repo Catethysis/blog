@@ -8,6 +8,8 @@
 	});
 	hljs.initHighlightingOnLoad();
 </script>
+<script type="text/javascript" src="http://vk.com/js/api/openapi.js?115"></script>
+<script type="text/javascript"> VK.init({apiId: 4501632, onlyWidgets: true});</script>
 <script type="text/javascript">
 window.onload = function () {
 	var top = $('.post__head').offset().top - parseInt($('.post__head').css('marginTop')) - 30;
@@ -261,6 +263,19 @@ hr {
 	bottom: 50px;
 }
 
+aside {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	margin-left: 25px;
+	width: 200px;
+	height: 100%;
+}
+
+aside #vk_groups {
+	margin-left: 1px;
+}
+
 </style>
 <body>
 	<div class="center">
@@ -351,10 +366,19 @@ hr {
 				</div>
 			</section>
 		</article>
-		</section>
-		<aside>
 
+		<aside>
+		<a class="twitter-timeline" href="https://twitter.com/Catethysis" data-widget-id="348534014291873792">Твиты пользователя @Catethysis</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+		<p>
+		<div id="vk_groups"></div>
+		<script type="text/javascript">
+		VK.Widgets.Group("vk_groups", {mode: 0, width: "198", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 68448377);
+		</script></p>
 		</aside>
+
+		</section>
 		<footer class="footer">
 			<span>
 				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br>
