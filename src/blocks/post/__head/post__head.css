@@ -2,6 +2,17 @@
     position: relative;
     width: 100%;
     background: #FFF;
+    height: 30px;
+    margin-top: 50px;
+}
+
+.post__head.fixed {
+    position: fixed;
+    top: 0;
+    width: 800px; /* very dirty, % doesn't work */ 
+    background: #FFF;
+    height: 50px;
+    margin-top: 0px;
 }
 
 .post__head:after {
@@ -46,7 +57,7 @@
 .post__head h1 {
     padding: 0;
     line-height: 40px;
-    margin: -23px 0 0 20px;
+    margin: -25px 0 0 20px;
     background: #fff;
     display: inline-block;
     vertical-align: top;

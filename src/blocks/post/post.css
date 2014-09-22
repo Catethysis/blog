@@ -5,18 +5,44 @@
 }
 
 .post__body {
-    padding: 0 70px;
+	padding: 0 70px;
+	padding-top: 0px;
+	padding-bottom: 80px;
+}
+
+.post__body.header_fixed {
+	padding-top: 80px;
 }
 
 .post__img {
-    display: block;
+	display: block;
 }
 
 .post__code {
-    margin: 10px -70px;
+	margin: 10px -70px;
 }
 
-.post__code code {
-    padding: 30px 70px;
-    display: block;
+.post__code .hljs {
+	padding: 30px 70px;
+}
+
+.post__header2 {
+	display: none;
+	position: relative;
+	top: -16px;
+	left: -10px;
+	background: #fff;
+	padding: 0 10px;
+	font-family: Arial;
+	font-size: 21px;
+	font-weight: 100;
+}
+
+.post__header2.display {
+	display: inline-block;
+}
+
+.post__header2::before {
+	content: "→";
+	margin-right: 13px;
 }

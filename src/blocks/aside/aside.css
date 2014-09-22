@@ -1,0 +1,16 @@
+aside {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	margin-left: 25px;
+	width: 200px;
+	height: 100%;
+}
+
+aside #twitter-widget-0 {
+	margin-top: -1px;
+}
+
+aside #vk_groups {
+	margin-left: 1px;
+}
