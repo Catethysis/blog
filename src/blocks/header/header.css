@@ -8,11 +8,18 @@
     background: url(./roads.png) no-repeat 400px 0px;
 }
 
-.header span {
-    font-size: 40px;
+.header div {
     color: transparent;
     text-shadow: 0 0 0px #777;
     position: relative;
     top: 50px;
     left: 50px;
+}
+
+.header__name {
+    font-size: 40px;
+}
+
+.header__desc {
+    font-size: 25px;
 }

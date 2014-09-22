@@ -11,6 +11,10 @@ block post {
             {
                 tag: 'h1',
                 content: this.ctx.content
+            },
+            {
+                tag: 'span',
+                elem: 'header2'
             }
         ]
 

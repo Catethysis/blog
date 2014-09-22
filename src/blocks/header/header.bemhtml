@@ -4,8 +4,14 @@ block header {
 
     content: [
         {
-            tag: 'span',
+            tag: 'div',
+            elem: 'name',
             content: 'Catethysis'
+        },
+        {
+            tag: 'div',
+            elem: 'desc',
+            content: 'Блог об электронике и STM32'
         }
     ]
 
